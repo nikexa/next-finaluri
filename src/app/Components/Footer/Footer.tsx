@@ -44,6 +44,7 @@ const Footer = () => {
               className="text-[12px] text-[#737373]"
               target="_blank"
               href={item.link}
+              key={item.name}
             >
               {item.name}
             </a>
@@ -51,7 +52,7 @@ const Footer = () => {
         })}
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-5 mb-5  ">
         <select className="text-[12px] text-[#737373] outline-none">
           <option value="nika">nika</option>
           <option value="nika">nika</option>

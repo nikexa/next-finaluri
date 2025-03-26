@@ -12,10 +12,10 @@ import Footer from '@/app/Components/Footer/Footer';
 
 const page = () => {
   return (
-    <div className='w-full h-screen flex flex-col justify-center items-center bg-white'> 
-      <div className='w-[350px] h-[622px] border border-1 border-[#DBDBDB]'>
-        <div className='flex h-[622px] items-center flex-col'>
-          <Image className='w-auto h-auto mt-7 mb-2' src={instagramTitle} alt="" width={200} height={200} />
+    <div className='w-full min-h-screen flex flex-col justify-center items-center bg-white'> 
+      <div className='w-[350px] min-h-[622px] border border-1 border-[#DBDBDB] mt-4'>
+        <div className='flex min-h-[622px] items-center flex-col'>
+          <Image className=' mt-7 mb-2' src={instagramTitle} alt="" width={200} height={200} />
           <p className='text-[16px] text-[#737373] w-[270px] text-center mb-3'>Sign up to see photos and videos from your friends.</p>
 
           <FacebookLoginBtn/>

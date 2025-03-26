@@ -1,6 +1,20 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/navigation";
+import { error } from "console";
+
+
+const schema = yup.object().shape({
+  gmail: yup.string().email().required("Enter a valid email address.") || yup.number().min(6).required(),
+  password: yup.string().required().matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/ , "Create a password at least 6 characters long."),
+  fullname: yup.string().required().matches(/\b[a-zA-ZÀ-ÿ]+\s[A-ZÀ-ÿ][a-zA-ZÀ-ÿ'-]{2,}\b/ , "Full name must contain at least 2 words"),
+  username: yup.string().required("Username is required")
+})
+
 
 interface IFormData {
   gmail: string;
@@ -25,28 +39,42 @@ const SignupForm = () => {
     { name: "Username", iden: "username", type: "text" },
   ];
 
+  const {register , handleSubmit , formState: {errors}} = useForm<IFormData>({ resolver: yupResolver(schema) })
+
+  console.log(inputs)
+  console.log(errors)
+
+  const router = useRouter();
+
+  function onSubmit(data: IFormData) {
+    console.log(data);
+    router.push('/');
+  }
+
   return (
     <div className="w-[268px] ">
-      <form className="relative w-[268px] mt-6 flex flex-col gap-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="relative w-[268px] mt-6 flex flex-col gap-2">
         {inputs.map((item) => {
           return (
             <div key={item.iden} className="relative ">
               <input
+              {...register(item.iden)}
                 id={item.iden}
                 type={
                   item.type === "password" && showPassword ? "text" : item.type
                 }
                 value={formData[item.iden]}
-                onChange={(e) =>
-                  setFormData({ ...formData, [item.iden]: e.target.value })
+                onChange={(e) =>{
+                  console.log(item.iden)
+                  setFormData({ ...formData, [item.iden]: e.target.value})}
                 }
                 placeholder={item.name}
-                className={`peer w-full h-[38px] border border-[#DBDBDB] bg-[#FAFAFA] text-black rounded-[3px] placeholder-transparent outline-none text-[12px] pl-3 pt-3`}
+                className={`peer w-full h-[38px] border border-[#DBDBDB] bg-[#FAFAFA] text-black rounded-[3px] placeholder-transparent outline-none text-[12px] pl-3 pt-3 ${errors[item.iden] && "border-[#FF3040]"}`}
               />
               <label
                 htmlFor={item.iden}
                 className={`absolute left-2 top-3 text-gray-500 px-1 transition-all text-[12px]
-                ${formData[item.iden] ? "top-[1px] text-sm text-[9px]" : ""}`}
+                ${formData[item.iden] ? "top-[1px] text-[9px] pt-0.5" : ""}`}
               >
                 {item.name}
               </label>
@@ -59,6 +87,7 @@ const SignupForm = () => {
                   {showPassword ? "Hide" : "Show"}
                 </button>
               )}
+              {errors[item.iden] && <p className="text-[#FF3040] text-[12px] pl-3 pt-1">{errors[item.iden]?.message}</p>}
             </div>
           );
         })}
@@ -103,7 +132,7 @@ const SignupForm = () => {
         </p>
 
 
-        <button className="w-full h-[32px] bg-[#0095F6] text-white rounded-[8px] text-[14px] opacity-65 mt-2">
+        <button className="w-full h-[32px] bg-[#0095F6] text-white rounded-[8px] text-[14px] opacity-65 mt-2 mb-5">
           Sign Up
         </button>
       </form>
