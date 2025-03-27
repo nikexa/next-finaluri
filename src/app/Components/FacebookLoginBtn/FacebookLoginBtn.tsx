@@ -1,11 +1,11 @@
 "use client"
-import { faSquareFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faSquareFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../../app/firebaseConfig";
 import React, { useState } from "react";
 
-const FacebookLoginBtn = () => {
+const FacebookLoginBtn = ({ variant = "filled" }) => {
   const [user, setUser] = useState<null | any>(null);
 
   const handleFacebookLogin = () => {
@@ -18,9 +18,11 @@ const FacebookLoginBtn = () => {
       });
   };
 
+  const isFilled = variant === "filled";
+
   return (
-    <button onClick={handleFacebookLogin} className="w-[268px] h-[34px] bg-[#0095F6] text-white rounded-[8px] flex justify-center items-center text-[14px] gap-2 mb-5">
-      <FontAwesomeIcon className="size-[20px]" icon={faSquareFacebook} />
+    <button onClick={handleFacebookLogin} className={`w-[268px] h-[34px] ${isFilled ? "text-BtnColor bg-TextWhite mt-3" : "text-TextWhite bg-BtnColor"}  rounded-[8px] flex justify-center items-center text-[14px] gap-2 mb-5`}>
+      <FontAwesomeIcon className="size-[20px]" icon={isFilled ? faFacebook : faSquareFacebook} />
       Log in with Facebook
     </button>
   );

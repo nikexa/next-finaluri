@@ -13,17 +13,17 @@ import Footer from '@/app/Components/Footer/Footer';
 const page = () => {
   return (
     <div className='w-full min-h-screen flex flex-col justify-center items-center bg-white'> 
-      <div className='w-[350px] min-h-[622px] border border-1 border-[#DBDBDB] mt-4'>
+      <div className='w-[350px] min-h-[622px] border border-1 border-InputBorderColor mt-4'>
         <div className='flex min-h-[622px] items-center flex-col'>
           <Image className=' mt-7 mb-2' src={instagramTitle} alt="" width={200} height={200} />
-          <p className='text-[16px] text-[#737373] w-[270px] text-center mb-3'>Sign up to see photos and videos from your friends.</p>
+          <p className='text-[16px] text-TextColor w-[270px] text-center mb-3'>Sign up to see photos and videos from your friends.</p>
 
-          <FacebookLoginBtn/>
+          <FacebookLoginBtn variant="textOnly" />
           
           <div className='w-[268px] flex items-center justify-center gap-4'>
-            <div className='w-[107px] h-[1px] bg-[#DBDBDB]'></div>
-            <p className='text-[13px] text-[#737373]'>OR</p>
-            <div className='w-[107px] h-[1px] bg-[#DBDBDB]'></div>
+            <div className='w-[107px] h-[1px] bg-InputBorderColor'></div>
+            <p className='text-[13px] text-TextColor'>OR</p>
+            <div className='w-[107px] h-[1px] bg-InputBorderColor'></div>
           </div>
 
             <SingupForm/>
@@ -32,9 +32,9 @@ const page = () => {
         </div>
       </div>
 
-      <div className='w-[350px] h-[81px] flex justify-center items-center flex-col mt-3 border border-1 border-[#DBDBDB]'>
+      <div className='w-[350px] h-[81px] flex justify-center items-center flex-col mt-3 border border-1 border-InputBorderColor'>
         <p className='text-[14px] text-black'>Have an account? </p>
-        <Link className='text-[14px] text-[#0095F6]' href='/login'>Log in</Link>
+        <Link className='text-[14px] text-BtnColor' href='/'>Log in</Link>
       </div>
 
 
@@ -48,7 +48,7 @@ const page = () => {
       </div>
 
 
-      <Footer/>
+      <Footer variant='not'/>
 
 
     </div>

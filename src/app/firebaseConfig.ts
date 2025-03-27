@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth , FacebookAuthProvider } from "firebase/auth";
 
 
@@ -13,8 +13,9 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const provider = new FacebookAuthProvider();
+
 
 export { auth, provider };

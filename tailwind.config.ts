@@ -7,6 +7,16 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      BtnColor: "#0095F6",
+      LinkColor: "#00376B",
+      TextColor: "#737373",
+      ErrorColor: "#FF3040",
+      InputBorderColor: "#DBDBDB",
+      InputBgColor: "#FAFAFA",
+      TextWhite: "#FFFFFF",
+      TextBlack: "#000000",
+    },
     extend: {
       colors: {
         background: "var(--background)",

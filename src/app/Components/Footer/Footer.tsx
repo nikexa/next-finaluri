@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Footer = () => {
+const Footer = ({variant = "margined"}) => {
   const licks = [
     { name: "Meta", link: "https://about.meta.com/" },
     { name: "About", link: "https://about.instagram.com/" },
@@ -36,13 +36,15 @@ const Footer = () => {
     },
   ];
 
+  const margined = variant === "margined";
+
   return (
     <>
-      <div className="flex flex-wrap gap-4 mt-16 mb-3">
+      <div className={`flex flex-wrap gap-4 ${margined ? "pt-[100px]" : "mt-16"} mb-3`}>
         {licks.map((item) => {
           return (
             <Link
-              className="text-[12px] text-[#737373]"
+              className="text-[12px] text-TextColor"
               target="_blank"
               href={item.link}
               key={item.name}
@@ -53,14 +55,14 @@ const Footer = () => {
         })}
       </div>
 
-      <div className="flex items-center gap-5 mb-5  ">
-        <select className="text-[12px] text-[#737373] outline-none">
+      <div className="flex items-center gap-5 mb-2 ">
+        <select className="text-[12px] text-TextColor outline-none">
           <option value="nika">nika</option>
           <option value="nika">nika</option>
           <option value="nika">nika</option>
         </select>
 
-        <p className="text-[12px] text-[#737373]">© 2025 Instagram from Meta</p>
+        <p className="text-[12px] text-TextColor">© 2025 Instagram from Meta</p>
       </div>
     </>
   );
