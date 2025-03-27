@@ -14,7 +14,6 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRouter } from "next/navigation";
 
 const schema = yup.object().shape({
   gmail: yup.string().email().required("Enter a valid email address.") || yup.number().min(6).required(),
@@ -48,6 +47,13 @@ export default function Home() {
     });
     const [showPassword, setShowPassword] = useState(false);
 
+    const Images = [
+      {src: screenshot1 },
+      {src: screenshot2 },
+      {src: screenshot3 },
+      {src: screenshot4 }
+    ]
+
   return (
     <div className="w-full h-screen flex justify-center items-center ">
       <div
@@ -71,42 +77,19 @@ export default function Home() {
           modules={[EffectFade, Autoplay]}
           className="mySwiper w-[250px] h-[538px] mt-7 !ml-[155px]"
         >
-          <SwiperSlide>
-            <Image
-              className="w-[250px] h-[538px]"
-              src={screenshot1}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-[250px] h-[538px]"
-              src={screenshot2}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-[250px] h-[538px]"
-              src={screenshot3}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-[250px] h-[538px]"
-              src={screenshot4}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </SwiperSlide>
+          {Images.map((item)=>{
+            return(
+              <SwiperSlide>
+                <Image
+                  className="w-[250px] h-[538px]"
+                  src={item.src}
+                  alt=""
+                  width={200}
+                  height={200}
+                />
+              </SwiperSlide>
+            )
+          })}
         </Swiper>
       </div>
 

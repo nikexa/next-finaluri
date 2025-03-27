@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -40,14 +41,14 @@ const Footer = () => {
       <div className="flex flex-wrap gap-4 mt-16 mb-3">
         {licks.map((item) => {
           return (
-            <a
+            <Link
               className="text-[12px] text-[#737373]"
               target="_blank"
               href={item.link}
               key={item.name}
             >
               {item.name}
-            </a>
+            </Link>
           );
         })}
       </div>
@@ -58,7 +59,6 @@ const Footer = () => {
           <option value="nika">nika</option>
           <option value="nika">nika</option>
         </select>
-
 
         <p className="text-[12px] text-[#737373]">© 2025 Instagram from Meta</p>
       </div>
