@@ -81,7 +81,7 @@ export default function Home() {
 
         <div className="flex flex-col gap-3 mt-[-60px]">
           <div>
-            <div className="w-[350px] h-[410px] border border-1 border-[#DBDBDB] mt-4 flex flex-col items-center">
+            <div className="w-[350px] h-[410px] border border-1 border-[#DBDBDB] mt-4 flex flex-col items-center max-sm:border-0">
               <Image
                 className=" mt-7 mb-2"
                 src={instagramTitle}
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-[350px] h-[68px] border border-1 border-InputBorderColor flex justify-center items-center">
+          <div className="w-[350px] h-[68px] border border-1 border-InputBorderColor flex justify-center items-center max-sm:border-0">
             <p className="text-TextBlack text-[14px]">
               Don't have an account?
               <Link className="text-BtnColor" href="/Sign_Up">

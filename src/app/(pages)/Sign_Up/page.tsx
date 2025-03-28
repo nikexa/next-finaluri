@@ -13,7 +13,7 @@ import Footer from '@/app/Components/Footer/Footer';
 const page = () => {
   return (
     <div className='w-full min-h-screen flex flex-col justify-center items-center bg-white'> 
-      <div className='w-[350px] min-h-[622px] border border-1 border-InputBorderColor mt-4'>
+      <div className='w-[350px] min-h-[622px] border border-1 border-InputBorderColor mt-4 max-sm:border-0  '>
         <div className='flex min-h-[622px] items-center flex-col'>
           <Image className=' mt-7 mb-2' src={instagramTitle} alt="" width={200} height={200} />
           <p className='text-[16px] text-TextColor w-[270px] text-center mb-3'>Sign up to see photos and videos from your friends.</p>
@@ -32,7 +32,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className='w-[350px] h-[81px] flex justify-center items-center flex-col mt-3 border border-1 border-InputBorderColor'>
+      <div className='w-[350px] h-[81px] flex justify-center items-center flex-col mt-3 border border-1 border-InputBorderColor max-sm:border-0' >
         <p className='text-[14px] text-black'>Have an account? </p>
         <Link className='text-[14px] text-BtnColor' href='/'>Log in</Link>
       </div>

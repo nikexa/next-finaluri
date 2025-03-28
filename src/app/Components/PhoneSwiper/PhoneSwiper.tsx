@@ -21,7 +21,7 @@ const PhoneSwiper = () => {
 
   return (
     <div
-    className="w-[465px] h-[635px]"
+    className="w-[465px] h-[635px] max-md:hidden"
     style={{
       backgroundImage: `url(${PhonesOnDefalt.src})`,
       backgroundSize: "cover",
